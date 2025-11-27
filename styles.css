@@ -1,0 +1,401 @@
+/* Estilo manuscrito para lista de compras */
+:root {
+  --paper-bg: #fefcf5;
+  --line-color: #d4e4f7;
+  --margin-color: #ffcccb;
+  --ink-blue: #2451a8;
+  --ink-dark: #1a1a2e;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Patrick Hand', cursive;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Papel com efeito 3D e linhas */
+.paper {
+  background: var(--paper-bg);
+  background-image: 
+    repeating-linear-gradient(
+      transparent,
+      transparent 34px,
+      var(--line-color) 34px,
+      var(--line-color) 36px
+    ),
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 45px,
+      var(--margin-color) 45px,
+      var(--margin-color) 47px,
+      transparent 47px
+    );
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.1),
+    0 10px 30px rgba(0,0,0,0.15),
+    inset 0 0 100px rgba(255,255,255,0.5);
+  border-radius: 3px;
+  padding: 50px 30px 50px 70px;
+  position: relative;
+  margin-bottom: 20px;
+  transform: rotate(-0.5deg);
+  transition: transform 0.3s ease;
+}
+
+.paper:hover {
+  transform: rotate(0deg);
+}
+
+/* Cabeçalho manuscrito */
+h1 {
+  font-family: 'Caveat', cursive;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--ink-blue);
+  text-align: center;
+margin-bottom: 30px;
+text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
+letter-spacing: 2px;
+}h2 {
+font-family: 'Caveat', cursive;
+font-size: 32px;
+font-weight: 700;
+color: var(--ink-blue);
+margin-bottom: 20px;
+text-align: center;
+}/* Navegação */
+.nav {
+display: flex;
+gap: 15px;
+justify-content: center;
+margin-bottom: 30px;
+}.nav-btn {
+font-family: 'Caveat', cursive;
+font-size: 22px;
+font-weight: 600;
+color: var(--ink-blue);
+background: rgba(255,255,255,0.7);
+border: 2px solid var(--ink-blue);
+padding: 8px 20px;
+border-radius: 20px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: inline-block;
+}.nav-btn:hover {
+background: var(--ink-blue);
+color: white;
+transform: translateY(-2px);
+}/* Formulário de cadastro */
+.form-group {
+margin-bottom: 40px;
+position: relative;
+}.form-label {
+font-family: 'Caveat', cursive;
+font-size: 26px;
+font-weight: 600;
+color: var(--ink-dark);
+display: block;
+margin-bottom: 8px;
+}.form-input, .form-select {
+font-family: 'Caveat', cursive;
+font-size: 24px;
+color: var(--ink-blue);
+background: transparent;
+border: none;
+border-bottom: 2px solid var(--ink-blue);
+width: 100%;
+padding: 8px 4px;
+outline: none;
+transition: border-color 0.3s ease;
+}.form-input:focus, .form-select:focus {
+border-bottom-color: #e63946;
+}.form-select {
+cursor: pointer;
+}.btn-group {
+display: flex;
+gap: 15px;
+justify-content: center;
+}.btn-submit, .btn-cancel {
+font-family: 'Caveat', cursive;
+font-size: 28px;
+font-weight: 700;
+color: white;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border: none;
+padding: 15px 40px;
+border-radius: 30px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+transition: all 0.3s ease;
+}.btn-cancel {
+background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}.btn-submit:hover, .btn-cancel:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}/* Lista de produtos cadastrados */
+.produtos-lista {
+margin-top: 50px;
+padding-top: 30px;
+border-top: 3px dashed var(--ink-blue);
+}.produto-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px;
+margin-bottom: 15px;
+background: rgba(255,255,255,0.5);
+border-radius: 10px;
+border: 2px solid rgba(36, 81, 168, 0.2);
+transition: all 0.3s ease;
+}.produto-item:hover {
+background: rgba(255,255,255,0.8);
+transform: translateX(5px);
+}.produto-info {
+flex: 1;
+}.produto-nome {
+font-family: 'Caveat', cursive;
+font-size: 24px;
+font-weight: 700;
+color: var(--ink-blue);
+margin-bottom: 5px;
+}.produto-detalhes {
+font-family: 'Patrick Hand', cursive;
+font-size: 16px;
+color: #666;
+}.produto-acoes {
+display: flex;
+gap: 10px;
+}.btn-editar, .btn-excluir {
+font-family: 'Caveat', cursive;
+font-size: 18px;
+font-weight: 600;
+padding: 8px 15px;
+border: none;
+border-radius: 15px;
+cursor: pointer;
+transition: all 0.3s ease;
+}.btn-editar {
+background: #4CAF50;
+color: white;
+}.btn-editar:hover {
+background: #45a049;
+transform: scale(1.05);
+}.btn-excluir {
+background: #f44336;
+color: white;
+}.btn-excluir:hover {
+background: #da190b;
+transform: scale(1.05);
+}/* Lista de compras */
+.lista-items {
+min-height: 200px;
+}.item-compra {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+border-bottom: 2px dashed rgba(36, 81, 168, 0.2);
+animation: fadeIn 0.4s ease;
+}@keyframes fadeIn {
+from { opacity: 0; transform: translateX(-20px); }
+to { opacity: 1; transform: translateX(0); }
+}.item-compra-info {
+flex: 1;
+}.item-compra-nome {
+font-family: 'Caveat', cursive;
+font-size: 28px;
+font-weight: 700;
+color: var(--ink-blue);
+line-height: 1.2;
+position: relative;
+transition: all 0.3s ease;
+}.item-compra.coletado .item-compra-nome {
+color: #999;
+}.item-compra.coletado .item-compra-nome::after {
+content: '';
+position: absolute;
+left: 0;
+top: 50%;
+width: 100%;
+height: 3px;
+background: var(--ink-blue);
+transform: translateY(-50%) scaleX(0);
+transform-origin: left;
+animation: strikethrough 0.5s ease forwards;
+}@keyframes strikethrough {
+to { transform: translateY(-50%) scaleX(1); }
+}.item-compra-detalhes {
+font-family: 'Patrick Hand', cursive;
+font-size: 18px;
+color: #666;
+margin-top: 5px;
+}.item-compra-quantidade {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+}.quantidade-controls {
+display: flex;
+align-items: center;
+gap: 10px;
+}.btn-qty {
+font-family: 'Caveat', cursive;
+font-size: 24px;
+font-weight: 700;
+width: 35px;
+height: 35px;
+border: 2px solid var(--ink-blue);
+background: white;
+color: var(--ink-blue);
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}.btn-qty:hover {
+background: var(--ink-blue);
+color: white;
+transform: scale(1.1);
+}.input-qty {
+font-family: 'Caveat', cursive;
+font-size: 22px;
+font-weight: 700;
+width: 60px;
+text-align: center;
+border: 2px solid var(--ink-blue);
+border-radius: 8px;
+padding: 5px;
+color: var(--ink-blue);
+}.quantidade-info {
+font-family: 'Caveat', cursive;
+font-size: 18px;
+color: #666;
+font-weight: 600;
+}.empty-state {
+text-align: center;
+padding: 60px 20px;
+font-family: 'Caveat', cursive;
+font-size: 28px;
+color: #999;
+}/* Botão enviar */
+.btn-enviar {
+font-family: 'Caveat', cursive;
+font-size: 28px;
+font-weight: 700;
+color: white;
+background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+border: none;
+padding: 15px 40px;
+border-radius: 30px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(86, 171, 47, 0.4);
+transition: all 0.3s ease;
+display: block;
+margin: 40px auto 0;
+}.btn-enviar:disabled {
+background: #ccc;
+cursor: not-allowed;
+box-shadow: none;
+}.btn-enviar:not(:disabled):hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(86, 171, 47, 0.6);
+}/* Histórico */
+.historico {
+background: rgba(255,255,255,0.9);
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+transform: rotate(0.5deg);
+}.historico-list {
+list-style: none;
+}.historico-item {
+font-family: 'Caveat', cursive;
+font-size: 22px;
+color: var(--ink-dark);
+padding: 12px;
+border-bottom: 2px dashed #ddd;
+transition: all 0.3s ease;
+}.historico-item:hover {
+background: rgba(102, 126, 234, 0.1);
+padding-left: 20px;
+}/* Modal de notificação */
+.notification {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) scale(0.8);
+background: white;
+padding: 40px 50px;
+border-radius: 20px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+z-index: 1000;
+text-align: center;
+opacity: 0;
+pointer-events: none;
+transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+max-width: 90%;
+}.notification.show {
+opacity: 1;
+transform: translate(-50%, -50%) scale(1);
+pointer-events: all;
+}.notification-icon {
+font-size: 60px;
+margin-bottom: 20px;
+}.notification-title {
+font-family: 'Caveat', cursive;
+font-size: 32px;
+font-weight: 700;
+color: var(--ink-dark);
+margin-bottom: 10px;
+}.notification-message {
+font-family: 'Patrick Hand', cursive;
+font-size: 20px;
+color: #666;
+margin-bottom: 25px;
+}.notification-btn {
+font-family: 'Caveat', cursive;
+font-size: 24px;
+font-weight: 600;
+color: white;
+background: var(--ink-blue);
+border: none;
+padding: 12px 30px;
+border-radius: 25px;
+cursor: pointer;
+transition: all 0.3s ease;
+}.notification-btn:hover {
+transform: scale(1.05);
+}.overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.5);
+z-index: 999;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}.overlay.show {
+opacity: 1;
+pointer-events: all;
+}

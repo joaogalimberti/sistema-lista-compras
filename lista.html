@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lista de Compras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="paper">
+      <h1>🛒 Lista de Compras</h1>
+      
+      <div id="listaItens" class="lista-items"></div>
+      
+      <button id="btnEnviar" class="btn-enviar" disabled>📤 Enviar para o Servidor</button>
+    </div>
+    
+    <div class="nav">
+      <a href="cadastro.html" class="nav-btn">← Gerenciar Produtos</a>
+    </div>
+    
+    <div class="historico">
+      <h2>📋 Histórico de Envios</h2>
+      <ul id="historicoLista" class="historico-list"></ul>
+    </div>
+  </div>
+  
+  <!-- Overlay e Notificação -->
+  <div id="overlay" class="overlay"></div>
+  <div id="notification" class="notification">
+    <div class="notification-icon" id="notifIcon">✓</div>
+    <div class="notification-title" id="notifTitle">Sucesso!</div>
+    <div class="notification-message" id="notifMessage">Mensagem aqui</div>
+    <button class="notification-btn" onclick="fecharNotificacao()">OK</button>
+  </div>
+
+  <script src="lista.js"></script>
+</body>
+</html>

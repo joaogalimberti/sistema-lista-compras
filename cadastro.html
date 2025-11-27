@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastro de Produtos - Lista de Compras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="paper">
+      <h1>✎ Cadastro de Produtos</h1>
+      
+      <form id="formCadastro">
+        <input type="hidden" id="codProdutoEdit">
+
+        <div class="form-group">
+          <label class="form-label">Nome do Produto *</label>
+          <input type="text" class="form-input" id="nomeProduto" placeholder="Ex: Arroz, Feijão, Leite..." required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Unidade *</label>
+          <select class="form-select" id="unidadeProduto" required>
+            <option value="">-- Escolher --</option>
+            <option value="un">un - Unidade</option>
+            <option value="kg">kg - Quilograma</option>
+            <option value="lt">lt - Litro</option>
+            <option value="mt">mt - Metro</option>
+            <option value="pc">pc - Pacote</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Quantidade *</label>
+          <input type="number" class="form-input" id="quantProduto" min="1" placeholder="1" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Código de Barra</label>
+          <input type="text" class="form-input" id="codigoBarra" placeholder="13 dígitos" maxlength="13" pattern="\d{13}">
+        </div>
+        
+        <div class="btn-group">
+          <button type="submit" class="btn-submit">✓ Salvar Produto</button>
+          <button type="button" class="btn-cancel" id="btnCancelar" style="display: none;">✗ Cancelar</button>
+        </div>
+      </form>
+
+      <div class="produtos-lista" id="produtosLista">
+        <h2>Produtos Cadastrados</h2>
+        <div id="listaProdutosCadastrados"></div>
+      </div>
+    </div>
+    
+    <div class="nav">
+      <a href="lista.html" class="nav-btn">Ver Lista de Compras →</a>
+    </div>
+  </div>
+  
+  <!-- Overlay e Notificação -->
+  <div id="overlay" class="overlay"></div>
+  <div id="notification" class="notification">
+    <div class="notification-icon" id="notifIcon">✓</div>
+    <div class="notification-title" id="notifTitle">Sucesso!</div>
+    <div class="notification-message" id="notifMessage">Mensagem aqui</div>
+    <button class="notification-btn" onclick="fecharNotificacao()">OK</button>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>
