@@ -1,40 +1,42 @@
-/*
-Lista de Compras com integração MockAPI
-- Mostra produtos da listaCompras
-- Permite marcar quantidade comprada
-- Quando todos coletados, envia para MockAPI
-- Produtos enviados são marcados como ativo:false no servidor
-*/
+/* Iniciar módulo de lista de compras */
 (function(){
+
+  /* Selecionar elementos principais da página */
   const container = document.getElementById('listaItens');
   const btnEnviar = document.getElementById('btnEnviar');
   const historicoList = document.getElementById('historicoLista');
 
   if(!container || !btnEnviar) return;
 
+  /* Carregar lista de compras do localStorage */
   function carregarLista(){
     const data = localStorage.getItem('listaCompras');
     return data ? JSON.parse(data) : [];
   }
 
+  /* Salvar lista de compras no localStorage */
   function salvarLista(lista){
     localStorage.setItem('listaCompras', JSON.stringify(lista));
   }
 
+  /* Carregar produtos cadastrados */
   function carregarProdutos(){
     const data = localStorage.getItem('listaProdutos');
     return data ? JSON.parse(data) : [];
   }
 
+  /* Carregar histórico de envios */
   function carregarHistorico(){
     const data = localStorage.getItem('historicoEnvios');
     return data ? JSON.parse(data) : [];
   }
 
+  /* Salvar histórico de envios */
   function salvarHistorico(h){
     localStorage.setItem('historicoEnvios', JSON.stringify(h));
   }
 
+  /* Obter descrição da unidade */
   function getDescricaoUnidade(sigla){
     const unidades = {
       'un': 'Unidade',
@@ -46,7 +48,7 @@ Lista de Compras com integração MockAPI
     return unidades[sigla] || sigla;
   }
 
-  // Sistema de notificações
+  /* Mostrar notificação na tela */
   function mostrarNotificacao(titulo, mensagem, icone = '✓', callback = null) {
     const overlay = document.getElementById('overlay');
     const notification = document.getElementById('notification');
@@ -64,6 +66,7 @@ Lista de Compras com integração MockAPI
     notification.dataset.callback = callback ? 'true' : 'false';
   }
 
+  /* Fechar notificação */
   window.fecharNotificacao = function() {
     const overlay = document.getElementById('overlay');
     const notification = document.getElementById('notification');
@@ -79,27 +82,32 @@ Lista de Compras com integração MockAPI
     }
   }
 
+  /* Renderizar lista de compras na tela */
   function renderLista(){
     const lista = carregarLista();
     const produtos = carregarProdutos();
     
     container.innerHTML = '';
 
+    /* Exibir mensagem se não houver produtos */
     if(produtos.length === 0){
       container.innerHTML = '<div class="empty-state">Nenhum produto cadastrado...<br>Vá em "Gerenciar Produtos"! ✏️</div>';
       atualizarBotao();
       return;
     }
 
+    /* Sincronizar lista de compras com produtos cadastrados */
     sincronizarListaCompras(produtos);
     const listaAtualizada = carregarLista();
 
+    /* Exibir mensagem se lista estiver vazia */
     if(listaAtualizada.length === 0){
       container.innerHTML = '<div class="empty-state">Sua lista está vazia...<br>Adicione produtos! ✏️</div>';
       atualizarBotao();
       return;
     }
 
+    /* Montar itens na tela */
     listaAtualizada.forEach((item) => {
       const div = document.createElement('div');
       div.className = 'item-compra' + (item.coletado ? ' coletado' : '');
@@ -134,13 +142,16 @@ Lista de Compras com integração MockAPI
     atualizarBotao();
   }
 
+  /* Sincronizar lista de compras com produtos cadastrados */
   function sincronizarListaCompras(produtos){
     let lista = carregarLista();
     
+    /* Remover produtos que foram apagados */
     lista = lista.filter(item => 
       produtos.some(p => p.codProduto === item.codProduto)
     );
 
+    /* Inserir ou atualizar produtos na lista */
     produtos.forEach(produto => {
       const existe = lista.find(item => item.codProduto === produto.codProduto);
       if(!existe){
@@ -162,6 +173,7 @@ Lista de Compras com integração MockAPI
     salvarLista(lista);
   }
 
+  /* Aumentar quantidade comprada */
   window.aumentarQuantidade = function(codProduto){
     const lista = carregarLista();
     const item = lista.find(i => i.codProduto === codProduto);
@@ -173,6 +185,7 @@ Lista de Compras com integração MockAPI
     }
   }
 
+  /* Diminuir quantidade comprada */
   window.diminuirQuantidade = function(codProduto){
     const lista = carregarLista();
     const item = lista.find(i => i.codProduto === codProduto);
@@ -184,6 +197,7 @@ Lista de Compras com integração MockAPI
     }
   }
 
+  /* Atualizar quantidade digitada */
   window.atualizarQuantidade = function(codProduto, valor){
     const lista = carregarLista();
     const item = lista.find(i => i.codProduto === codProduto);
@@ -195,16 +209,18 @@ Lista de Compras com integração MockAPI
     }
   }
 
+  /* Atualizar botão de envio */
   function atualizarBotao(){
     const lista = carregarLista();
     const todos = lista.length > 0 && lista.every(i => i.coletado);
     btnEnviar.disabled = !todos;
   }
 
-  // Enviar para MockAPI
+  /* Enviar lista para MockAPI */
   btnEnviar.addEventListener('click', async function(){
     const lista = carregarLista();
     
+    /* Bloquear envio se lista estiver vazia */
     if(lista.length === 0){
       mostrarNotificacao(
         'Lista Vazia 📝',
@@ -214,6 +230,7 @@ Lista de Compras com integração MockAPI
       return;
     }
 
+    /* Bloquear envio se nem todos estiverem coletados */
     const todos = lista.every(i => i.coletado);
     if(!todos){
       mostrarNotificacao(
@@ -228,18 +245,13 @@ Lista de Compras com integração MockAPI
     btnEnviar.textContent = '⏳ Enviando...';
 
     try {
+      /* Criar compra no servidor */
       const dataCompra = new Date().toISOString();
-      
-      // 1. Criar a compra
-      const compra = {
-        data: dataCompra
-      };
+      const compra = { data: dataCompra };
 
       const responseCompra = await fetch('https://69264c8426e7e41498f9efaa.mockapi.io/Compras', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(compra)
       });
 
@@ -250,13 +262,12 @@ Lista de Compras com integração MockAPI
       const compraResult = await responseCompra.json();
       const codCompra = compraResult.CodCompras;
 
-      // 2. Enviar cada produto usando a URL de relacionamento correta
+      /* Enviar produtos da compra usando relacionamento correto */
       const produtos = carregarProdutos();
       
       for(const item of lista) {
         const produto = produtos.find(p => p.codProduto === item.codProduto);
         
-        // Dados do produto - SEM CompraId pois a URL já faz o relacionamento
         const produtoData = {
           CodProduto: item.codProduto,
           Nome: item.nome,
@@ -267,12 +278,9 @@ Lista de Compras com integração MockAPI
           QuantComprada: item.quantidadeComprada
         };
         
-        // IMPORTANTE: usar a URL de relacionamento /Compras/{id}/produtos
         const responseProduto = await fetch(`https://69264c8426e7e41498f9efaa.mockapi.io/Compras/${codCompra}/produtos`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(produtoData)
         });
         
@@ -282,7 +290,7 @@ Lista de Compras com integração MockAPI
         }
       }
 
-      // 3. Salvar no histórico local
+      /* Salvar envio no histórico */
       const hist = carregarHistorico();
       hist.push({
         id: codCompra,
@@ -292,7 +300,7 @@ Lista de Compras com integração MockAPI
       });
       salvarHistorico(hist);
 
-      // 4. Limpar lista de compras atual
+      /* Limpar lista após envio */
       localStorage.removeItem('listaCompras');
 
       mostrarNotificacao(
@@ -326,7 +334,7 @@ Lista de Compras com integração MockAPI
     }
   });
 
-  // Renderizar histórico
+  /* Renderizar histórico de envios */
   function renderHistorico(){
     const hist = carregarHistorico();
     historicoList.innerHTML = '';
@@ -336,6 +344,7 @@ Lista de Compras com integração MockAPI
       return;
     }
 
+    /* Montar cada item do histórico */
     hist.slice().reverse().forEach((envio) => {
       const li = document.createElement('li');
       li.className = 'historico-item';
@@ -359,7 +368,7 @@ Lista de Compras com integração MockAPI
     });
   }
 
-  // Inicialização
+  /* Iniciar renderização inicial */
   renderLista();
   renderHistorico();
 })();
