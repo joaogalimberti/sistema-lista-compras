@@ -1,415 +1,190 @@
-# 🛒✨ Sistema de Lista de Compras Manuscrita
+# 🛒 Sistema de Lista de Compras - Projeto Acadêmico
 
-<div align="center">
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![MockAPI](https://img.shields.io/badge/MockAPI-00C853?style=for-the-badge&logo=api&logoColor=white)
 
-![Banner](https://img.shields.io/badge/📝_Lista_de_Compras-Manuscrita-4A90E2?style=for-the-badge&labelColor=2C3E50)
+## 📋 Sobre o Projeto
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=4A90E2&center=true&vCenter=true&width=600&lines=Sistema+de+Lista+de+Compras;Design+Manuscrito+%F0%9F%96%8B%EF%B8%8F;Integra%C3%A7%C3%A3o+com+MockAPI;Projeto+Acad%C3%AAmico+de+Web" alt="Typing SVG" />
+Sistema completo de gerenciamento de lista de compras desenvolvido como trabalho acadêmico da disciplina **Tecnologia WEB**. O projeto implementa operações CRUD, persistência de dados e integração com API REST, utilizando exclusivamente **HTML, CSS e JavaScript vanilla** (sem frameworks ou bibliotecas).
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![MockAPI](https://img.shields.io/badge/MockAPI-00C853?style=for-the-badge&logo=api&logoColor=white)](https://mockapi.io)
+### 🎯 Requisitos Atendidos
 
-**Uma experiência única de lista de compras que parece ter sido escrita à mão!** ✍️
-
-[🎯 Sobre](#-sobre-o-projeto) • [✨ Funcionalidades](#-funcionalidades-principais) • [🎨 Design](#-o-design-único) • [🔌 API](#-integração-com-mockapi) • [🚀 Como Usar](#-como-usar) • [📸 Demo](#-demonstração-visual)
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-
-</div>
-
----
-
-## 📖 Sobre o Projeto
-
-> **"Transformando a simplicidade de uma lista de papel em uma aplicação web moderna"**
-
-Este projeto nasceu como um desafio acadêmico da disciplina **Tecnologia WEB**, mas se tornou algo muito maior: uma experiência visual e funcional que une o charme das listas manuscritas com o poder da tecnologia moderna.
-
-<details>
-<summary>📚 <b>Contexto Acadêmico</b> (clique para expandir)</summary>
-
-<br>
-
-### 🎓 Requisitos do Trabalho
-
-O projeto foi desenvolvido seguindo rigorosamente os requisitos acadêmicos:
-
-| Requisito | Status | Descrição |
-|-----------|--------|-----------|
-| ✅ **HTML Puro** | Completo | Estrutura semântica sem frameworks |
-| ✅ **CSS Puro** | Completo | Estilização avançada com animações |
-| ✅ **JavaScript Vanilla** | Completo | Lógica sem bibliotecas externas |
-| ✅ **CRUD Completo** | Completo | Create, Read, Update, Delete |
-| ✅ **LocalStorage** | Completo | Persistência de dados |
-| ✅ **Validações** | Completo | Campos obrigatórios e formatos |
-| ✅ **Integração API** | Completo | MockAPI com relacionamentos |
-
-</details>
-
-### 🎯 O Diferencial
-
-**Por que este projeto é especial?**
-```
-🎨 Design Manuscrito Único
-   └─ Simula papel pautado real
-   └─ Fontes que parecem escritas à mão
-   └─ Animações de caneta azul
-
-💾 Sistema de Persistência Inteligente
-   └─ LocalStorage para dados locais
-   └─ MockAPI para dados no servidor
-   └─ Sincronização automática
-
-🎭 Experiência do Usuário Excepcional
-   └─ Notificações elegantes
-   └─ Feedback visual instantâneo
-   └─ Interface intuitiva
-```
-
-<div align="center">
-
-### 🏆 Características Técnicas
-
-| Frontend | Backend | Extras |
-|:--------:|:-------:|:------:|
-| 📱 Responsivo | 🔌 REST API | 🎨 Animações CSS |
-| ⚡ Rápido | 📊 Relacionamentos | ✨ Fontes Custom |
-| 🎯 Intuitivo | 💾 Persistência | 🎭 Modais Elegantes |
-
-</div>
+| Requisito | Status | Implementação |
+|-----------|--------|---------------|
+| HTML, CSS e JS puro | ✅ | Sem uso de frameworks |
+| Duas páginas (cadastro e lista) | ✅ | `cadastro.html` e `lista.html` |
+| CSS e JS externos | ✅ | `styles.css` e arquivos `.js` |
+| CRUD de produtos | ✅ | Create, Read, Update, Delete |
+| Validação de campos | ✅ | Campos obrigatórios e formatos |
+| LocalStorage | ✅ | `listaProdutos` e `listaCompras` |
+| Integração com API | ✅ | MockAPI com relacionamentos |
+| Envio ao servidor | ✅ | POST com todos os itens coletados |
 
 ---
 
-## ✨ Funcionalidades Principais
+## 🏗️ Arquitetura do Sistema
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 📦 Gerenciamento de Produtos
-```javascript
-// Operações disponíveis
-const operacoes = {
-  criar: "Cadastrar novos produtos",
-  editar: "Modificar produtos existentes",
-  excluir: "Remover produtos",
-  listar: "Visualizar todos os produtos"
-}
+### Estrutura de Arquivos
+```
+projeto/
+├── cadastro.html       # Página de gerenciamento de produtos
+├── cadastro.js         # Lógica CRUD e validações
+├── lista.html          # Página de lista de compras
+├── lista.js            # Controle de compras e integração API
+└── styles.css          # Estilização completa
 ```
 
-#### 🎯 Campos do Produto
-
-- **Código**: Gerado automaticamente (incremental)
-- **Nome**: Campo obrigatório, texto livre
-- **Unidade**: Seleção entre 5 opções
-  - `un` - Unidade
-  - `kg` - Quilograma
-  - `lt` - Litro
-  - `mt` - Metro
-  - `pc` - Pacote
-- **Quantidade**: Número obrigatório, mínimo 1
-- **Código de Barra**: Opcional, exatamente 13 dígitos
-
-#### ✅ Validações Implementadas
-```javascript
-validacoes = {
-  nome: "Campo obrigatório",
-  unidade: "Seleção obrigatória",
-  quantidade: "Número > 0",
-  codigoBarra: "13 dígitos ou vazio"
-}
+### Fluxo de Dados
 ```
-
-</td>
-<td width="50%" valign="top">
-
-### 🛒 Lista de Compras Dinâmica
-```javascript
-// Controles disponíveis
-const controles = {
-  aumentar: "➕ Botão +",
-  diminuir: "➖ Botão -",
-  digitar: "⌨️ Input manual",
-  marcar: "☑️ Auto-check"
-}
+┌─────────────────┐
+│  cadastro.html  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐      ┌──────────────┐
+│  cadastro.js    │─────▶│ localStorage │
+└─────────────────┘      │ listaProdutos│
+                         └──────┬───────┘
+                                │
+                                ▼
+                         ┌──────────────┐
+                         │ localStorage │
+                         │ listaCompras │
+                         └──────┬───────┘
+                                │
+                                ▼
+┌─────────────────┐      ┌──────────────┐
+│   lista.html    │◀─────│   lista.js   │
+└─────────────────┘      └──────┬───────┘
+                                │
+                                ▼
+                         ┌──────────────┐
+                         │   MockAPI    │
+                         │  /Compras    │
+                         │  /produtos   │
+                         └──────────────┘
 ```
-
-#### 🔄 Sincronização Automática
-
-A lista se atualiza automaticamente quando:
-- ➕ Novo produto é cadastrado
-- ✏️ Produto é editado
-- 🗑️ Produto é excluído
-
-#### 🎨 Feedback Visual
-
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="400">
-
-- **Não coletado**: Texto azul normal
-- **Em progresso**: Quantidade colorida
-- **Coletado**: ~~Texto riscado~~ com animação
-
-#### 📤 Envio para Servidor
-```mermaid
-graph LR
-    A[Todos Coletados?] -->|Sim| B[Botão Verde]
-    A -->|Não| C[Botão Cinza Desabilitado]
-    B --> D[Enviar para MockAPI]
-    D --> E[Sucesso!]
-    D --> F[Erro]
-```
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-### 🎭 Sistema de Notificações
-
-<table>
-<tr>
-<th>Tipo</th>
-<th>Ícone</th>
-<th>Quando Aparece</th>
-<th>Cor</th>
-</tr>
-<tr>
-<td>✅ Sucesso</td>
-<td>✓</td>
-<td>Produto salvo, Compra enviada</td>
-<td>🟢 Verde</td>
-</tr>
-<tr>
-<td>⚠️ Aviso</td>
-<td>⚠️</td>
-<td>Campos faltando, Validações</td>
-<td>🟡 Amarelo</td>
-</tr>
-<tr>
-<td>❌ Erro</td>
-<td>❌</td>
-<td>Falha na API, Erros de envio</td>
-<td>🔴 Vermelho</td>
-</tr>
-<tr>
-<td>🎊 Celebração</td>
-<td>🎊</td>
-<td>Compra finalizada com sucesso</td>
-<td>🌈 Gradiente</td>
-</tr>
-</table>
-
-</div>
 
 ---
 
-## 🎨 O Design Único
+## 💾 Sistema de Persistência
 
-### 🖋️ A Experiência Manuscrita
+### LocalStorage - Estrutura de Dados
 
-<div align="center">
-```
-╔══════════════════════════════════════════════════════════════╗
-║  🎨 Elementos do Design Manuscrito                           ║
-╠══════════════════════════════════════════════════════════════╣
-║                                                              ║
-║  📄 Papel Pautado Realista                                   ║
-║     • Linhas azuis horizontais (como caderno real)           ║
-║     • Margem vermelha vertical (estilo clássico)             ║
-║     • Textura de papel envelhecido                           ║
-║                                                              ║
-║  ✍️ Fontes Manuscritas                                       ║
-║     • Caveat: Para títulos e destaques                       ║
-║     • Patrick Hand: Para textos gerais                       ║
-║                                                              ║
-║  🎭 Efeitos Visuais                                          ║
-║     • Sombra 3D no papel                                     ║
-║     • Rotação sutil (-0.5deg)                                ║
-║     • Hover interativo                                       ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
-```
-
-</div>
-
-### 🎬 Animações e Transições
-
-<table>
-<tr>
-<td width="33%">
-
-#### 📝 Entrada de Itens
-```css
-@keyframes fadeIn {
-  from { 
-    opacity: 0;
-    transform: translateX(-20px);
+#### 1. listaProdutos
+Armazena todos os produtos cadastrados no sistema.
+```javascript
+// Estrutura: Array de objetos
+[
+  {
+    codProduto: 1,           // Number (auto-incremento)
+    nome: "Arroz",           // String (obrigatório)
+    unidade: "kg",           // String (un|kg|lt|mt|pc)
+    quantidade: 5,           // Number (obrigatório, > 0)
+    codigoBarra: "7891234567890"  // String (opcional, 13 dígitos)
   }
-  to { 
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+]
 ```
 
-**Efeito**: Itens deslizam suavemente da esquerda
+**Gerenciado por:** `cadastro.js`
 
-</td>
-<td width="33%">
-
-#### ✏️ Riscado ao Coletar
-```css
-@keyframes strikethrough {
-  to { 
-    transform: translateY(-50%)
-              scaleX(1);
+#### 2. listaCompras
+Sincronizada automaticamente com `listaProdutos`, adiciona controle de quantidades.
+```javascript
+// Estrutura: Array de objetos
+[
+  {
+    codProduto: 1,              // Referência ao produto
+    nome: "Arroz",              // Copiado de listaProdutos
+    unidade: "kg",              // Copiado de listaProdutos
+    quantidadeNecessaria: 5,    // Quantidade a comprar
+    quantidadeComprada: 3,      // Quantidade já coletada
+    coletado: false             // true quando qtdComprada >= qtdNecessaria
   }
-}
+]
 ```
 
-**Efeito**: Linha azul risca o texto como caneta
+**Gerenciado por:** `lista.js`
 
-</td>
-<td width="34%">
-
-#### 🎪 Modal de Notificação
-```css
-@keyframes modalBounce {
-  from {
-    transform: translate(-50%, -50%)
-              scale(0.8);
+#### 3. historicoEnvios
+Registra todas as tentativas de envio ao servidor.
+```javascript
+// Estrutura: Array de objetos
+[
+  {
+    id: "1",                    // CodCompras retornado pela API
+    data: "2025-11-26T19:42:15.276Z",  // ISO 8601
+    itens: 2,                   // Quantidade de produtos enviados
+    sucesso: true               // true = sucesso, false = erro
+  },
+  {
+    data: "2025-11-26T20:15:30.123Z",
+    itens: 3,
+    sucesso: false,
+    erro: "Network Error"       // Mensagem de erro (quando sucesso = false)
   }
-  to {
-    transform: translate(-50%, -50%)
-              scale(1);
-  }
-}
+]
 ```
 
-**Efeito**: Modal surge com bounce effect
-
-</td>
-</tr>
-</table>
-
-### 🎨 Paleta de Cores
-
-<div align="center">
-
-| Elemento | Cor | Hex | Uso |
-|:--------:|:---:|:---:|:---:|
-| 🟦 Tinta Azul | ![#2451a8](https://via.placeholder.com/15/2451a8/000000?text=+) | `#2451a8` | Texto manuscrito |
-| 🟥 Margem | ![#ffcccb](https://via.placeholder.com/15/ffcccb/000000?text=+) | `#ffcccb` | Margem do papel |
-| 🟦 Linhas | ![#d4e4f7](https://via.placeholder.com/15/d4e4f7/000000?text=+) | `#d4e4f7` | Linhas pautadas |
-| 🟨 Papel | ![#fefcf5](https://via.placeholder.com/15/fefcf5/000000?text=+) | `#fefcf5` | Fundo do papel |
-| 🟪 Gradiente | ![#667eea](https://via.placeholder.com/15/667eea/000000?text=+) | `#667eea` | Botões e fundo |
-
-</div>
-
-### 📱 Responsividade
-```css
-/* Design fluido que se adapta a qualquer tela */
-.container {
-  width: 100%;           /* 100% do viewport */
-  max-width: 800px;      /* Máximo de 800px */
-  padding: 20px;         /* Espaçamento interno */
-}
-
-/* Papel se adapta mantendo proporções */
-.paper {
-  width: 100%;
-  transform: rotate(-0.5deg);  /* Inclinação sutil */
-  transition: transform 0.3s;   /* Transição suave */
-}
-
-.paper:hover {
-  transform: rotate(0deg);      /* Endireita no hover */
-}
-```
+**Gerenciado por:** `lista.js`
 
 ---
 
 ## 🔌 Integração com MockAPI
 
-### 🏗️ Arquitetura da API
+### Arquitetura REST
 
-<div align="center">
-```mermaid
-graph TB
-    A[🖥️ Frontend - Lista de Compras] --> B{🔄 Todos os itens coletados?}
-    B -->|Sim| C[📤 Inicia envio para servidor]
-    B -->|Não| D[🔒 Botão desabilitado]
-    
-    C --> E[🌐 POST /Compras]
-    E --> F[✅ Recebe CodCompras: 1]
-    
-    F --> G[📦 Para cada produto da lista]
-    G --> H[🌐 POST /Compras/1/produtos]
-    H --> I{Mais produtos?}
-    I -->|Sim| G
-    I -->|Não| J[💾 Salva histórico local]
-    
-    J --> K[🗑️ Limpa listaCompras]
-    K --> L[🎉 Exibe notificação de sucesso]
-    
-    E -->|Erro| M[❌ Captura erro]
-    H -->|Erro| M
-    M --> N[💾 Salva erro no histórico]
-    N --> O[⚠️ Exibe notificação de erro]
-    
-    style A fill:#4A90E2,stroke:#2C3E50,stroke-width:3px,color:#fff
-    style L fill:#00C853,stroke:#00872B,stroke-width:3px,color:#fff
-    style O fill:#E74C3C,stroke:#C0392B,stroke-width:3px,color:#fff
+O sistema utiliza a MockAPI como backend, implementando uma arquitetura REST com relacionamento entre recursos.
+```
+MockAPI URL Base: https://69264c8426e7e41498f9efaa.mockapi.io/
+
+Recursos:
+├── /Compras              (Resource principal)
+│   └── /{id}/produtos    (Resource aninhado - relacionamento Parent-Child)
 ```
 
-</div>
+### Schema dos Recursos
 
-### 📊 Estrutura de Dados Completa
-
-<table>
-<tr>
-<td width="50%">
-
-#### 📋 Recurso: Compras
-```json
+#### Recurso: Compras
+```javascript
+// POST /Compras - Criar nova compra
 {
-  "CodCompras": "1",
+  "data": "2025-11-26T19:42:15.276Z"  // ISO 8601 timestamp
+}
+
+// Response
+{
+  "CodCompras": "1",                   // ID gerado pela API
   "data": "2025-11-26T19:42:15.276Z",
-  "produtos": [
-    {
-      "id": "1",
-      "CodProduto": 1,
-      "Nome": "Arroz",
-      "Unidade": "kg",
-      "Quantidade": 5,
-      "CodigoBarra": "7891234567890",
-      "Ativo": false,
-      "QuantComprada": 5
-    }
-  ]
+  "produtos": []                        // Array vazio inicialmente
 }
 ```
 
-**Campos Explicados:**
+**Campos:**
+- `CodCompras` (Object ID): Gerado automaticamente pela API
+- `data` (Date): Timestamp de quando a compra foi criada
+- `produtos` (Array): Relacionamento com produtos (preenchido automaticamente)
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `CodCompras` | Object ID | ID único da compra |
-| `data` | Date (ISO) | Timestamp do envio |
-| `produtos` | Array | Lista de produtos comprados |
-
-</td>
-<td width="50%">
-
-#### 📦 Recurso: produtos
-```json
+#### Recurso: produtos
+```javascript
+// POST /Compras/{id}/produtos - Adicionar produto à compra
 {
-  "id": "1",
   "CodProduto": 1,
-  "CompraId": "1",
+  "Nome": "Arroz",
+  "Unidade": "kg",
+  "Quantidade": 5,
+  "CodigoBarra": "7891234567890",
+  "Ativo": false,
+  "QuantComprada": 5
+}
+
+// Response
+{
+  "id": "1",                 // ID gerado pela API
+  "CodProduto": 1,
+  "CompraId": "1",          // Relacionamento automático (Parent ID)
   "Nome": "Arroz",
   "Unidade": "kg",
   "Quantidade": 5,
@@ -419,55 +194,59 @@ graph TB
 }
 ```
 
-**Campos Explicados:**
+**Campos:**
+- `id` (Object ID): Gerado pela API
+- `CodProduto` (Number): Código do produto no sistema local
+- `CompraId` (Parent ID): Vinculação automática com a compra (gerado pela URL)
+- `Nome` (String): Nome do produto
+- `Unidade` (String): Unidade de medida
+- `Quantidade` (Number): Quantidade necessária
+- `CodigoBarra` (String): Código de barras EAN-13
+- `Ativo` (Boolean): `false` = produto já foi comprado
+- `QuantComprada` (Number): Quantidade efetivamente coletada
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `id` | Object ID | ID único do produto |
-| `CodProduto` | Number | Código do sistema |
-| `CompraId` | Parent ID | Vínculo com Compras |
-| `Nome` | String | Nome do produto |
-| `Unidade` | String | un, kg, lt, mt, pc |
-| `Quantidade` | Number | Qtd necessária |
-| `CodigoBarra` | String | EAN-13 (opcional) |
-| `Ativo` | Boolean | false = já comprado |
-| `QuantComprada` | Number | Qtd efetivamente comprada |
+### Relacionamento Parent-Child
 
-</td>
-</tr>
-</table>
-
-### 🔄 Fluxo de Envio Detalhado
-
-<details>
-<summary>👆 <b>Clique para ver o código completo do fluxo</b></summary>
+O MockAPI cria automaticamente o relacionamento quando usamos a URL aninhada:
 ```javascript
-// ========================================
-// PASSO 1: Validar lista de compras
-// ========================================
-const lista = carregarLista(); // Busca do localStorage
+// URL: /Compras/{id}/produtos
+// O campo CompraId é preenchido automaticamente com o {id} da URL
+```
 
-if(lista.length === 0) {
-  mostrarNotificacao('Lista Vazia 📝', 'Não há itens para enviar.', '⚠️');
-  return;
+---
+
+## 📡 Sistema de Requisições HTTP
+
+### Tecnologia: Fetch API
+
+O projeto utiliza a **Fetch API** nativa do JavaScript para comunicação assíncrona com o servidor (AJAX).
+```javascript
+// Exemplo de requisição básica
+const response = await fetch(url, {
+  method: 'POST',                          // Método HTTP
+  headers: {
+    'Content-Type': 'application/json'     // Tipo do conteúdo
+  },
+  body: JSON.stringify(data)               // Dados em JSON
+});
+
+// Tratamento da resposta
+if(!response.ok) {
+  throw new Error('Erro na requisição');
 }
 
-const todosColetados = lista.every(item => item.coletado);
-if(!todosColetados) {
-  mostrarNotificacao(
-    'Itens Não Coletados! ☑️',
-    'Todos os itens devem estar coletados antes de enviar.',
-    '⚠️'
-  );
-  return;
-}
+const resultado = await response.json();   // Parse do JSON
+```
 
-// ========================================
-// PASSO 2: Criar registro de Compra
-// ========================================
+### Fluxo Completo de Envio
+
+#### Passo 1: Criar Compra
+```javascript
+// Criar objeto com data atual
 const dataCompra = new Date().toISOString();
 const compra = { data: dataCompra };
 
+// Enviar requisição POST
 const responseCompra = await fetch(
   'https://69264c8426e7e41498f9efaa.mockapi.io/Compras',
   {
@@ -477,34 +256,44 @@ const responseCompra = await fetch(
   }
 );
 
+// Validar resposta
 if(!responseCompra.ok) {
   throw new Error('Erro ao criar compra no servidor');
 }
 
+// Extrair ID da compra criada
 const compraResult = await responseCompra.json();
-const codCompra = compraResult.CodCompras; // Pega o ID gerado
+const codCompra = compraResult.CodCompras;  // "1", "2", "3"...
+```
 
-// ========================================
-// PASSO 3: Enviar cada produto
-// ========================================
-const produtos = carregarProdutos(); // Busca produtos cadastrados
+**O que acontece:**
+1. Sistema cria timestamp atual
+2. Envia POST para `/Compras`
+3. MockAPI cria registro e retorna com ID
+4. Sistema extrai o `CodCompras` para próximo passo
 
+#### Passo 2: Enviar Produtos
+```javascript
+// Buscar produtos completos do localStorage
+const produtos = JSON.parse(localStorage.getItem('listaProdutos'));
+
+// Iterar sobre cada item da lista de compras
 for(const item of lista) {
-  // Encontra o produto original para pegar o código de barras
+  // Encontrar produto original para pegar código de barras
   const produto = produtos.find(p => p.codProduto === item.codProduto);
   
-  // Monta o objeto do produto
+  // Montar objeto do produto
   const produtoData = {
     CodProduto: item.codProduto,
     Nome: item.nome,
     Unidade: item.unidade,
     Quantidade: item.quantidadeNecessaria,
     CodigoBarra: produto?.codigoBarra || '',
-    Ativo: false,  // Marca como já comprado
+    Ativo: false,                          // Marcar como comprado
     QuantComprada: item.quantidadeComprada
   };
   
-  // Envia usando a URL de relacionamento
+  // Enviar produto vinculado à compra
   const responseProduto = await fetch(
     `https://69264c8426e7e41498f9efaa.mockapi.io/Compras/${codCompra}/produtos`,
     {
@@ -515,233 +304,118 @@ for(const item of lista) {
   );
   
   if(!responseProduto.ok) {
-    throw new Error('Erro ao enviar produto para o servidor');
+    throw new Error('Erro ao enviar produto');
   }
 }
+```
 
-// ========================================
-// PASSO 4: Salvar no histórico local
-// ========================================
-const hist = carregarHistorico();
+**O que acontece:**
+1. Para cada produto na lista
+2. Busca informações completas do produto
+3. Monta objeto com todos os dados
+4. Envia POST para `/Compras/{id}/produtos`
+5. MockAPI vincula automaticamente via `CompraId`
+
+#### Passo 3: Finalizar
+```javascript
+// Salvar no histórico local
+const hist = JSON.parse(localStorage.getItem('historicoEnvios') || '[]');
 hist.push({
   id: codCompra,
   data: dataCompra,
   itens: lista.length,
   sucesso: true
 });
-salvarHistorico(hist);
+localStorage.setItem('historicoEnvios', JSON.stringify(hist));
 
-// ========================================
-// PASSO 5: Limpar lista atual
-// ========================================
+// Limpar lista atual
 localStorage.removeItem('listaCompras');
 
-// ========================================
-// PASSO 6: Feedback ao usuário
-// ========================================
-mostrarNotificacao(
-  'Enviado com Sucesso! 🎊',
-  `Sua compra foi enviada para o servidor!<br><br>` +
-  `<em>CodCompra: ${codCompra}</em><br>` +
-  `<em>Total: ${lista.length} ${lista.length === 1 ? 'item' : 'itens'}</em>`,
-  '✓',
-  true // Callback para recarregar lista
-);
+// Exibir notificação de sucesso ao usuário
+mostrarNotificacao('Enviado com Sucesso!', `CodCompra: ${codCompra}`, '✓');
 ```
 
-</details>
-
-### 🔗 Endpoints Utilizados
-
-<div align="center">
-
-| Método | Endpoint | Descrição | Payload |
-|:------:|:---------|:----------|:--------|
-| 🟢 POST | `/Compras` | Criar nova compra | `{ data: "ISO-8601" }` |
-| 🟢 POST | `/Compras/{id}/produtos` | Adicionar produto à compra | `{ CodProduto, Nome, Unidade, ... }` |
-| 🔵 GET | `/Compras` | Listar todas as compras | - |
-| 🔵 GET | `/Compras/{id}/produtos` | Listar produtos de uma compra | - |
-
-</div>
-
-### ⚠️ Tratamento de Erros
+### Tratamento de Erros
 ```javascript
 try {
   // Tentativa de envio
-  await enviarParaAPI();
+  await criarCompra();
+  await enviarProdutos();
+  finalizarEnvio();
   
 } catch(error) {
-  // Captura qualquer erro
+  // Captura QUALQUER erro (rede, servidor, parsing...)
   
-  // Salva no histórico para auditoria
-  const hist = carregarHistorico();
+  // Registrar erro no histórico
+  const hist = JSON.parse(localStorage.getItem('historicoEnvios') || '[]');
   hist.push({
     data: new Date().toISOString(),
     itens: lista.length,
     sucesso: false,
-    erro: error.message  // Mensagem do erro
+    erro: error.message
   });
-  salvarHistorico(hist);
+  localStorage.setItem('historicoEnvios', JSON.stringify(hist));
   
-  // Exibe notificação amigável ao usuário
-  mostrarNotificacao(
-    'Erro ao Enviar! ❌',
-    `Não foi possível enviar para o servidor.<br><br>` +
-    `<em>Erro: ${error.message}</em>`,
-    '❌'
-  );
+  // Feedback ao usuário
+  mostrarNotificacao('Erro ao Enviar!', error.message, '❌');
 }
 ```
 
-**Erros Comuns e Soluções:**
-
-| Erro | Causa Provável | Solução |
-|------|----------------|---------|
-| `400 Bad Request` | Dados inválidos ou faltando | Verificar campos obrigatórios |
-| `404 Not Found` | URL da API incorreta | Conferir configuração no código |
-| `Network Error` | Sem conexão com internet | Verificar conectividade |
-| `CORS Error` | Problema de permissão | MockAPI já tem CORS habilitado |
+**Possíveis erros:**
+- `400 Bad Request`: Dados inválidos ou campos faltando
+- `404 Not Found`: URL da API incorreta
+- `Network Error`: Sem conexão com internet
+- `TypeError`: Erro de parsing do JSON
 
 ---
 
-## 💾 Sistema de Armazenamento
+## 🔧 Principais Funcionalidades do Código
 
-### 📦 LocalStorage - Estrutura Completa
-
-<table>
-<tr>
-<td width="33%">
-
-#### 📋 listaProdutos
-```json
-[
-  {
-    "codProduto": 1,
-    "nome": "Arroz",
-    "unidade": "kg",
-    "quantidade": 5,
-    "codigoBarra": "7891234567890"
-  },
-  {
-    "codProduto": 2,
-    "nome": "Feijão",
-    "unidade": "kg",
-    "quantidade": 2,
-    "codigoBarra": ""
-  }
-]
-```
-
-**Armazena:** Produtos cadastrados
-
-**Usado em:** cadastro.js
-
-</td>
-<td width="33%">
-
-#### 🛒 listaCompras
-```json
-[
-  {
-    "codProduto": 1,
-    "nome": "Arroz",
-    "unidade": "kg",
-    "quantidadeNecessaria": 5,
-    "quantidadeComprada": 3,
-    "coletado": false
-  },
-  {
-    "codProduto": 2,
-    "nome": "Feijão",
-    "unidade": "kg",
-    "quantidadeNecessaria": 2,
-    "quantidadeComprada": 2,
-    "coletado": true
-  }
-]
-```
-
-**Armazena:** Lista atual de compras
-
-**Usado em:** lista.js
-
-</td>
-<td width="34%">
-
-#### 📜 historicoEnvios
-```json
-[
-  {
-    "id": "1",
-    "data": "2025-11-26T19:42:15.276Z",
-    "itens": 2,
-    "sucesso": true
-  },
-  {
-    "data": "2025-11-26T20:15:30.123Z",
-    "itens": 3,
-    "sucesso": false,
-    "erro": "Network Error"
-  }
-]
-```
-
-**Armazena:** Histórico de envios
-
-**Usado em:** lista.js
-
-</td>
-</tr>
-</table>
-
-### 🔄 Sincronização Automática
-
-<div align="center">
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    FLUXO DE SINCRONIZAÇÃO                    │
-└──────────────────────────────────────────────────────────────┘
-
-    📦 listaProdutos                    🛒 listaCompras
-         (Master)                          (Sincronizada)
-            │                                    │
-            │  ➕ Produto Novo Cadastrado        │
-            ├────────────────────────────────────>
-            │                                    │
-            │                   Adiciona à lista de compras
-            │                   com quantidadeComprada = 0
-            │                                    │
-            │  ✏️ Produto Editado                │
-            ├────────────────────────────────────>
-            │                                    │
-            │                   Atualiza nome, unidade,
-            │                   quantidadeNecessaria
-            │                                    │
-            │  🗑️ Produto Excluído                │
-            ├────────────────────────────────────>
-            │                                    │
-            │                   Remove da lista de compras
-            │                                    │
-```
-
-</div>
-
-**Código da Sincronização:**
+### 1. Geração Automática de Código
 ```javascript
-function sincronizarListaCompras(produtos){
-  let lista = carregarLista();
+function gerarProximoCodigo() {
+  // Buscar todos os produtos
+  const produtos = JSON.parse(localStorage.getItem('listaProdutos') || '[]');
   
-  // 1️⃣ REMOVER produtos que não existem mais
+  // Se não há produtos, começar do 1
+  if(produtos.length === 0) return 1;
+  
+  // Encontrar o maior código existente
+  const maxCod = Math.max(...produtos.map(p => p.codProduto || 0));
+  
+  // Retornar próximo código (incremento)
+  return maxCod + 1;
+}
+
+// Uso no cadastro
+const novoProduto = {
+  codProduto: gerarProximoCodigo(),  // 1, 2, 3, 4...
+  nome: "Arroz",
+  // ...
+};
+```
+
+**Por que isso é importante:**
+- Evita códigos duplicados
+- Mantém sequência numérica
+- Funciona mesmo após exclusões
+
+### 2. Sincronização Automática
+```javascript
+function sincronizarListaCompras(produtos) {
+  let lista = JSON.parse(localStorage.getItem('listaCompras') || '[]');
+  
+  // ETAPA 1: Remover produtos excluídos
   lista = lista.filter(item => 
     produtos.some(p => p.codProduto === item.codProduto)
   );
-
-  // 2️⃣ ADICIONAR produtos novos
+  
+  // ETAPA 2: Adicionar novos produtos e atualizar existentes
   produtos.forEach(produto => {
     const existe = lista.find(item => item.codProduto === produto.codProduto);
     
     if(!existe) {
-      // Produto novo - adicionar à lista
+      // Produto novo - adicionar
       lista.push({
         codProduto: produto.codProduto,
         nome: produto.nome,
@@ -755,89 +429,299 @@ function sincronizarListaCompras(produtos){
       existe.nome = produto.nome;
       existe.unidade = produto.unidade;
       existe.quantidadeNecessaria = produto.quantidade;
+      // Mantém quantidadeComprada e coletado
     }
   });
-
-  salvarLista(lista);
+  
+  // Salvar lista sincronizada
+  localStorage.setItem('listaCompras', JSON.stringify(lista));
 }
+```
+
+**Quando é executada:**
+- Ao carregar `lista.html`
+- Após cadastrar novo produto
+- Após editar produto
+- Após excluir produto
+
+**O que faz:**
+1. Remove itens de produtos excluídos
+2. Adiciona novos produtos à lista
+3. Atualiza informações de produtos editados
+4. Preserva progresso de compra (quantidadeComprada)
+
+### 3. Controle de Estado do Botão
+```javascript
+function atualizarBotao() {
+  const lista = JSON.parse(localStorage.getItem('listaCompras') || '[]');
+  const btnEnviar = document.getElementById('btnEnviar');
+  
+  // Verificar se TODOS os itens foram coletados
+  const todosColetados = lista.length > 0 && lista.every(i => i.coletado);
+  
+  // Habilitar/desabilitar botão
+  btnEnviar.disabled = !todosColetados;
+}
+```
+
+**Quando é chamada:**
+- Ao renderizar a lista
+- Ao aumentar/diminuir quantidade
+- Ao digitar quantidade manualmente
+
+**Lógica:**
+- Lista vazia → botão desabilitado
+- Algum item não coletado → botão desabilitado
+- Todos coletados → botão habilitado
+
+### 4. Marcação Automática de Coletado
+```javascript
+function atualizarQuantidade(codProduto, valor) {
+  const lista = JSON.parse(localStorage.getItem('listaCompras') || '[]');
+  const item = lista.find(i => i.codProduto === codProduto);
+  
+  if(item) {
+    // Atualizar quantidade (mínimo 0)
+    item.quantidadeComprada = Math.max(0, Number(valor) || 0);
+    
+    // Marcar como coletado automaticamente
+    item.coletado = item.quantidadeComprada >= item.quantidadeNecessaria;
+    
+    // Salvar e re-renderizar
+    localStorage.setItem('listaCompras', JSON.stringify(lista));
+    renderLista();
+  }
+}
+```
+
+**Regra de negócio:**
+```
+SE quantidadeComprada >= quantidadeNecessaria
+  ENTÃO coletado = true
+SENÃO
+  coletado = false
+```
+
+**Exemplo:**
+- Necessário: 5kg de arroz
+- Comprado: 3kg → `coletado = false`
+- Comprado: 5kg → `coletado = true`
+- Comprado: 7kg → `coletado = true` (comprou a mais)
+
+### 5. Validação de Código de Barras
+```javascript
+function validarCodigoBarra(codigo) {
+  // Se vazio, é válido (campo opcional)
+  if(!codigo) return true;
+  
+  // Regex: exatamente 13 dígitos numéricos
+  return /^\d{13}$/.test(codigo);
+}
+
+// Uso no formulário
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const codigoBarra = document.getElementById('codigoBarra').value.trim();
+  
+  if(codigoBarra && !validarCodigoBarra(codigoBarra)) {
+    mostrarNotificacao(
+      'Código de Barra Inválido!',
+      'O código deve ter exatamente 13 dígitos numéricos.',
+      '⚠️'
+    );
+    return;
+  }
+  
+  // Continuar salvamento...
+});
+```
+
+**Regex explicada:**
+- `^` = início da string
+- `\d` = dígito (0-9)
+- `{13}` = exatamente 13 vezes
+- `$` = fim da string
+
+---
+
+## 🎯 Fluxo de Uso Completo
+
+### 1. Cadastrar Produtos
+```
+Usuario abre cadastro.html
+        ↓
+Preenche formulário (nome, unidade, quantidade, código de barras)
+        ↓
+Clica em "Salvar Produto"
+        ↓
+cadastro.js valida os campos
+        ↓
+Gera codProduto automaticamente
+        ↓
+Salva em localStorage.listaProdutos
+        ↓
+Adiciona em localStorage.listaCompras (sincronização)
+        ↓
+Exibe notificação de sucesso
+        ↓
+Atualiza lista de produtos na tela
+```
+
+### 2. Fazer Compras
+```
+Usuario abre lista.html
+        ↓
+lista.js sincroniza com listaProdutos
+        ↓
+Renderiza todos os produtos ativos
+        ↓
+Usuario clica no botão "+" para aumentar quantidade
+        ↓
+Sistema verifica: qtdComprada >= qtdNecessaria?
+        ↓
+Se SIM: marca como coletado automaticamente
+        ↓
+Atualiza localStorage.listaCompras
+        ↓
+Re-renderiza lista (aplica estilo de riscado)
+        ↓
+Verifica se todos estão coletados
+        ↓
+Se TODOS coletados: habilita botão "Enviar para o Servidor"
+```
+
+### 3. Enviar para Servidor
+```
+Usuario clica em "Enviar para o Servidor"
+        ↓
+Sistema valida se todos os itens estão coletados
+        ↓
+POST /Compras { data: timestamp }
+        ↓
+MockAPI retorna { CodCompras: "1" }
+        ↓
+Para cada produto na lista:
+  ├─ Monta objeto com todos os dados
+  ├─ Define Ativo: false
+  └─ POST /Compras/1/produtos
+        ↓
+MockAPI cria relacionamento automaticamente
+        ↓
+Salva em localStorage.historicoEnvios
+        ↓
+Remove localStorage.listaCompras
+        ↓
+Exibe notificação: "Enviado com sucesso! CodCompra: 1"
+        ↓
+Re-renderiza lista (agora vazia)
 ```
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## 🚀 Como Configurar e Executar
 
-### 📁 Organização dos Arquivos
+### Passo 1: Configurar MockAPI
+
+1. Acesse [mockapi.io](https://mockapi.io) e crie uma conta
+2. Crie um novo projeto
+3. Crie o recurso **Compras**:
+   - Campo: `CodCompras` (Object ID)
+   - Campo: `data` (Date)
+
+4. Crie o recurso **produtos** com relacionamento:
+   - Parent: Compras
+   - Campo: `CodProduto` (Number)
+   - Campo: `CompraId` (Parent ID)
+   - Campo: `Nome` (String)
+   - Campo: `Unidade` (String)
+   - Campo: `Quantidade` (Number)
+   - Campo: `CodigoBarra` (String)
+   - Campo: `Ativo` (Boolean)
+   - Campo: `QuantComprada` (Number)
+
+### Passo 2: Configurar URLs no Código
+
+Edite o arquivo `lista.js`:
+```javascript
+// Linha ~155 - Criar compra
+const responseCompra = await fetch(
+  'https://SUA_URL_AQUI.mockapi.io/Compras',  // ← Substituir
+  { /* ... */ }
+);
+
+// Linha ~185 - Enviar produtos
+const responseProduto = await fetch(
+  `https://SUA_URL_AQUI.mockapi.io/Compras/${codCompra}/produtos`,  // ← Substituir
+  { /* ... */ }
+);
 ```
-📦 lista-compras/
-│
-├── 📄 cadastro.html          # Página de gerenciamento de produtos
-│   └── Interface para CRUD de produtos
-│
-├── 📄 lista.html             # Página da lista de compras
-│   └── Interface para marcar itens e enviar ao servidor
-│
-├── 📜 cadastro.js            # Lógica do cadastro
-│   ├── Validações de formulário
-│   ├── Operações CRUD
-│   ├── Geração de códigos automáticos
-│   └── Sincronização com localStorage
-│
-├── 📜 lista.js               # Lógica da lista + API
-│   ├── Renderização da lista
-│   ├── Controle de quantidades
-│   ├── Marcação de coletados
-│   ├── Integração com MockAPI
-│   └── Histórico de envios
-│
-└── 🎨 styles.css             # Estilização completa
-    ├── Design manuscrito
-    ├── Animações CSS
-    ├── Responsividade
-    └── Componentes visuais
+
+### Passo 3: Executar
+
+Abra os arquivos HTML diretamente no navegador:
+```bash
+# Windows
+start cadastro.html
+
+# Mac
+open cadastro.html
+
+# Linux
+xdg-open cadastro.html
 ```
 
-### 🔍 Detalhamento dos Componentes
+Ou use um servidor local:
+```bash
+# Python
+python -m http.server 8000
 
-<details>
-<summary><b>📄 cadastro.html</b> - Estrutura HTML (clique para expandir)</summary>
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cadastro de Produtos</title>
-  
-  <!-- Fontes Manuscritas do Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-  
-  <!-- CSS Principal -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <!-- Papel com efeito pautado -->
-    <div class="paper">
-      <h1>✎ Cadastro de Produtos</h1>
-      
-      <!-- Formulário de cadastro -->
-      <form id="formCadastro">
-        <!-- Campo oculto para edição -->
-        <input type="hidden" id="codProdutoEdit">
-        
-        <!-- Código (gerado automaticamente) -->
-        <div class="form-group">
-          <label class="form-label">Código do Produto</label>
-          <input type="number" class="form-input" id="codProduto" 
-                 disabled placeholder="Gerado automaticamente">
-        </div>
+# Node.js
+npx serve
 
-        <!-- Nome do produto -->
-        <div class="form-group">
-          <label class="form-label">Nome do Produto *</label>
-          <input type="text" class="form-input" id="nomeProduto" 
-                 placeholder="Ex: Arroz, Feijão, Leite..." required>
-        </div>
-        
-        <!-- Unidade de medida -->
-        <div class="
+# PHP
+php -S localhost:8000
+```
+
+---
+
+## 📊 Tecnologias e Conceitos Aplicados
+
+### JavaScript ES6+
+
+- ✅ **Arrow Functions**: `() => {}`
+- ✅ **Template Literals**: `` `texto ${variavel}` ``
+- ✅ **Destructuring**: `const { id } = objeto`
+- ✅ **Spread Operator**: `[...array]`
+- ✅ **Array Methods**: `map`, `filter`, `find`, `every`, `some`
+- ✅ **Async/Await**: `async function`, `await fetch()`
+- ✅ **Optional Chaining**: `produto?.codigoBarra`
+- ✅ **Nullish Coalescing**: `valor || 'padrão'`
+
+### Web APIs
+
+- ✅ **LocalStorage API**: Persistência de dados
+- ✅ **Fetch API**: Requisições HTTP (AJAX)
+- ✅ **DOM API**: Manipulação de elementos
+- ✅ **Events API**: Event Listeners
+
+### Padrões e Boas Práticas
+
+- ✅ **IIFE**: `(function(){ ... })()`  - Isolamento de escopo
+- ✅ **Try-Catch**: Tratamento de erros
+- ✅ **Validação**: Client-side validation
+- ✅ **Separação de Responsabilidades**: HTML/CSS/JS separados
+- ✅ **Código Modular**: Funções específicas e reutilizáveis
+- ✅ **Nomenclatura Semântica**: Nomes descritivos
+
+---
+
+## 📝 Licença
+
+Projeto desenvolvido para fins acadêmicos - Disciplina de Tecnologia WEB.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido como projeto acadêmico do curso de Análise e Desenvolvimento de Sistemas.
